@@ -24,8 +24,8 @@ package stringArithmetic;
         解释：两个字符串没有公共子序列，返回 0。*/
 public class LongestCommonSubsequence {
     public static void main(String[] args) {
-        String text1 = "abcde";
-        String text2 = "ace";
+        String text1 = "abcda";
+        String text2 = "adcba";
         System.out.println(LongestCommonSubsequence(text1, text2));
     }
 

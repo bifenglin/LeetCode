@@ -1,5 +1,8 @@
 package stringArithmetic;
 
+import java.util.HashSet;
+import java.util.Scanner;
+
 /*给定两个字符串 text1 和 text2，返回这两个字符串的最长公共子序列。
 
         一个字符串的 子序列 是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成的新字符串。
@@ -27,6 +30,7 @@ public class LongestCommonSubsequence {
         String text1 = "abcda";
         String text2 = "adcba";
         System.out.println(LongestCommonSubsequence(text1, text2));
+        HashSet set= new HashSet();
     }
 
     public static int LongestCommonSubsequence(String text1, String text2) {

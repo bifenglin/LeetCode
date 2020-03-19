@@ -1,6 +1,7 @@
 package stringArithmetic;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -36,29 +37,22 @@ public class WordBreak {
         List<String> wordDict = new ArrayList<>();
         wordDict.add("leet");
         wordDict.add("code");
-        List<List<String>> res = new ArrayList<>();
+        System.out.println(trace(s, wordDict));
     }
 
-    public static void trace(String s, List<String> wordDict, int start, int end, int len, List<String> words, List<List<String>> res){
-        if (start < len){
-            res.add(words);
-            return;
-        }
-        for (int i=0; i<len; i++){
-            String compareWord = s.substring(start, end);
-            if (!isInDic(compareWord, wordDict)) {
-                continue;
+    public static boolean trace(String s, List<String> wordDict){
+        HashSet<String> set = new HashSet<>(wordDict);
+        boolean[] dp = new boolean[s.length()+1];
+        dp[0]= true;
+        for (int i = 1; i < s.length(); i++) {
+            for(int j = 0; j < i ; j ++){
+                if (dp[j] && set.contains(s.substring(j, i))){
+                    dp[i] = true;
+                    break;
+                }
             }
-            words.add(compareWord);
-
         }
+        return dp[s.length()];
     }
 
-    public static boolean isInDic(String s, List<String> wordDict){
-        for (int i = 0; i < wordDict.size(); i++){
-            if (s.equals(wordDict.get(i)))
-                return true;
-        }
-        return false;
-    }
 }
